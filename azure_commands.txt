@@ -1,7 +1,7 @@
 
 ## To create resource group.
 
-abc@DESKTOP-9QH4IRU:~$ az group create --name ABC-RG1 --location westus2
+abc@DESKTOP-9QH4IRU:~$ az group create --name ABC-RG1 --location hist
 {
   "id": "/subscriptions/0b715e4f-72d7-493c-95b4-a10cbb176546/resourceGroups/ABC-RG1",
   "location": "westus2",
@@ -13,3 +13,47 @@ abc@DESKTOP-9QH4IRU:~$ az group create --name ABC-RG1 --location westus2
   "tags": null,
   "type": "Microsoft.Resources/resourceGroups"
 }
+
+#### create another resrouce group in different location
+
+az group create --name FutruesEast --location eastus
+{
+  "id": "/subscriptions/0b715e4f-72d7-493c-95b4-a10cbb176546/resourceGroups/FutruesEast",
+  "location": "eastus",
+  "managedBy": null,
+  "name": "FutruesEast",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
+
+
+### list the resource group 
+az group list -o table
+Name          Location    Status
+------------  ----------  ---------
+ABC-RG1       westus2     Succeeded
+Futures-East  eastus2     Succeeded
+FutruesEast   eastus      Succeeded
+
+### delete the resource group.
+
+az group delete --name futures-East --yes --no-wai
+abc@DESKTOP-9QH4IRU:~/azure/azure_infrastracure$ az group list -o table
+Name         Location    Status
+-----------  ----------  ---------
+ABC-RG1      westus2     Succeeded
+FutruesEast  eastus      Succeeded
+az group delete --name futures-East --yes --no-wai
+
+### push to git.
+
+# Example: create another resource group in a different location.
+# Replace `<NEW-RG-NAME>` and `<LOCATION>` as needed (e.g., eastus2, westeurope).
+az group create --name <NEW-RG-NAME> --location <LOCATION>
+
+git add .
+git commit -m "updated the azure_commands.txt"
+git push
