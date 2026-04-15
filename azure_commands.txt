@@ -1,0 +1,15 @@
+
+## To create resource group.
+
+abc@DESKTOP-9QH4IRU:~$ az group create --name ABC-RG1 --location westus2
+{
+  "id": "/subscriptions/0b715e4f-72d7-493c-95b4-a10cbb176546/resourceGroups/ABC-RG1",
+  "location": "westus2",
+  "managedBy": null,
+  "name": "ABC-RG1",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null,
+  "type": "Microsoft.Resources/resourceGroups"
+}
